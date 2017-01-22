@@ -1,0 +1,16 @@
+<% include header %>
+<h1>Add a </h1>
+
+<h1><%= title %></h1>
+
+// Outputting All customers
+<% users.forEach(function(user){{ %>
+
+    <p>My name is <%= user.name %> <%= user.lastname %></p>
+    <p><strong>Email:</strong> <em><%= user.email %></em>
+
+<% }}) %>
+
+<% include footer %>
+
+

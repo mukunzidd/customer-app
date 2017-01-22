@@ -1,0 +1,16 @@
+{
+  "name": "nubiex",
+  "version": "1.0.0",
+  "description": "An Express nubie app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "^2.5.5",
+    "express": "*"
+  },
+  "author": "Dodo Mukunzi",
+  "license": "ISC"
+}
