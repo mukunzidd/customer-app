@@ -1,12 +1,33 @@
 <% include header %>
-<h1>Add a </h1>
+<h1>Add Customer</h1>
+
+<% if(errors){ %>
+    <ul>
+        <% errors.forEach(function(error){ %>
+        <li><em><%= error.msg %></em></li>
+        <% }) %>
+    </ul>
+<% } %>
+
+<form method="POST" action="/users/add">
+    <label for="First Name">First Name</label><br>
+    <input type="text" name="first_name" placeholder="Enter your first name">
+    <br>
+    <label for="Last Name">Last Name</label><br>
+    <input type="text" name="last_name" placeholder="Enter your last name">
+    <br>
+    <label for="Email">Email</label><br>
+    <input type="text" name="email" placeholder="Enter your email">
+    <br>
+    <input type="submit" value="Submit"><br>
+</form>
 
 <h1><%= title %></h1>
 
 // Outputting All customers
 <% users.forEach(function(user){{ %>
 
-    <p>My name is <%= user.name %> <%= user.lastname %></p>
+    <p>My name is <%= user.first_name %> <%= user.last_name %></p>
     <p><strong>Email:</strong> <em><%= user.email %></em>
 
 <% }}) %>
