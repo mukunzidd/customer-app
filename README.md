@@ -13,7 +13,7 @@ Customer App is my first project on my way to learning and mastering the MEAN st
 - EJS
 - Body Parser
 - Express Validator
-- Mongoose
+- MongoJS
 
 ****
   ///   //////  //////  //////  ///

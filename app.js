@@ -4,6 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     expressValidator = require('express-validator'),
     path = require('path'),
+    mongojs = require('mongojs'),
     app = express();
 
 // View Engine
