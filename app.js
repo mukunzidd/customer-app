@@ -5,6 +5,7 @@ var express = require('express'),
     expressValidator = require('express-validator'),
     path = require('path'),
     mongojs = require('mongojs'),
+    db = mongojs('customerapp', ['users']),
     app = express();
 
 // View Engine
@@ -19,6 +20,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Global Vars
+app.use(function(req, res, next){
+    res.locals.errors = null;
+    next();
+});
 
 // Middleware for expressValidator
 app.use(expressValidator({
@@ -39,29 +44,28 @@ app.use(expressValidator({
 }));
 
 // Objects to pass in views
-var users = [
-    {
-        first_name:'Jane',
-        last_name:'Doe',
-        email:'janedoe@gmail.com'
-    },
-    {
-        first_name:'John',
-        last_name:'Doe',
-        email:'johndoe@gmail.com'
-    },
-    {
-        last_name:'Jill',
-        last_name:'Doe',
-        email:'jilldoe@gmail.com'
-    }
-]
+// var users = [
+//     {
+//         first_name:'Jane',
+//         last_name:'Doe',
+//         email:'janedoe@gmail.com'
+//     },
+//     {
+//         first_name:'John',
+//         last_name:'Doe',
+//         email:'johndoe@gmail.com'
+//     }
+// ]
+
 // Routes Handler
 app.get('/', function(req, res){
-    res.render('index', {
-        title:'Users',
-        users: users
-    });
+    db.users.find(function (err, docs) {
+        console.log(docs);
+        res.render('index', {
+            title:'Users',
+            users: docs
+        });
+    })
 });
 
 app.post('/users/add', function(req, res){
@@ -81,11 +85,16 @@ app.post('/users/add', function(req, res){
   } else {
       var newUser = {
         first_name: req.body.first_name,
-        last_name: req.body.first_name,
-        email: req.body.first_name
+        last_name: req.body.last_name,
+        email: req.body.email
     }
 
-    console.log('SUCCESS');
+db.users.insert(newUser, function(err, result){
+    if(err){
+        console.log(err);
+    }
+    res.redirect('/');
+    });
   }
 });
 // Create a server

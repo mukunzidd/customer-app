@@ -1,4 +1,4 @@
-<% include header %>
+<% include partials/header %>
 <h1>Add Customer</h1>
 
 <% if(errors){ %>
@@ -29,9 +29,10 @@
 
     <p>My name is <%= user.first_name %> <%= user.last_name %></p>
     <p><strong>Email:</strong> <em><%= user.email %></em>
+    - <a href="#">Delete Customer</a>
 
 <% }}) %>
 
-<% include footer %>
+<% include partials/footer %>
 
 
