@@ -10,13 +10,11 @@ Customer App is my first project on my way to learning and mastering the MEAN st
 - Angular2 as the frontend framework to give a vibe to the app.
 
 ## Node Modules
+- EJS
+- Body Parser
+- Express Validator
+- Mongoose
 
-_*EJS*_
-_*Body Parser*_
-_*Express Validator*_
-_*Mongoose*_
-
-****
 
 ///   //////  //////  //////  ///
 ///         
