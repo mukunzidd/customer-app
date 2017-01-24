@@ -43,6 +43,23 @@ app.use(expressValidator({
   }
 }));
 
+<<<<<<< HEAD
+=======
+// Objects to pass in views
+// var users = [
+//     {
+//         first_name:'Jane',
+//         last_name:'Doe',
+//         email:'janedoe@gmail.com'
+//     },
+//     {
+//         first_name:'John',
+//         last_name:'Doe',
+//         email:'johndoe@gmail.com'
+//     }
+// ]
+
+>>>>>>> 8e8f90fd0a960cdd102d8b04eaaa112c0b6ce762
 // Routes Handler
 app.get('/', function(req, res){
     db.users.find(function (err, docs) {
