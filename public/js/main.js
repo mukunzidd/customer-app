@@ -1,0 +1,1 @@
+alert('Duuuuude jQuery is connected');
