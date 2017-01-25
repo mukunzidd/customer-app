@@ -1,5 +1,5 @@
 <% include partials/header %>
-<h1>Add Customer</h1>
+<h1>Add New Customer</h1>
 
 <% if(errors){ %>
     <ul>
@@ -9,7 +9,7 @@
     </ul>
 <% } %>
 
-<form method="POST" action="/users/add">
+<form method="POST" action="/users/new">
     <label for="First Name">First Name</label><br>
     <input type="text" name="first_name" placeholder="Enter your first name">
     <br>

@@ -1,1 +1,3 @@
-alert('Duuuuude jQuery is connected');
+$(document).ready(function(){
+	
+});

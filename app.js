@@ -60,7 +60,7 @@ app.use(expressValidator({
 // Routes Handler
 app.get('/', function(req, res){
     db.users.find(function (err, docs) {
-        console.log(docs);
+        console.log('Success...');
         res.render('index', {
             title:'Users',
             users: docs
@@ -68,8 +68,9 @@ app.get('/', function(req, res){
     })
 });
 
-app.post('/users/add', function(req, res){
-
+// Creating a new user (with POST accessed at http://localhost:4000/users/new)
+app.post('/users/new', function(req, res){
+// Express Validator at work
   req.checkBody('first_name', 'Frist Name is required').notEmpty();
   req.checkBody('last_name', 'Last Name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
@@ -97,8 +98,13 @@ db.users.insert(newUser, function(err, result){
     });
   }
 });
+
+app.delete('/users', function (req, res) {
+  res.send('Deleted')
+})
+
 // Create a server
-app.listen(3000, function(){
-    console.log('Server Started on Port 3000...')
+app.listen(4000, function(){
+    console.log('Server Started on Port 4000...')
 })
 
